@@ -1,0 +1,52 @@
+
+@model PC1_Programacion.Models.Formulario
+
+<div class="container" style="border:black 5px solid">    
+    <div style="border:red 5px ;">
+     Contacto 
+    </div>
+ <div>
+<form asp-action="Formulario" asp-controller="formulario">
+    <div>
+    <label>Nombre</label><br>
+    <input asp-for="nombre" type="text">
+    <span asp-validation-for="nombre" class="from-control"></span>
+    </div>
+    <div>
+    <label>Apellido</label><br>
+    <input asp-for="apellido" type="text">
+    <span asp-validation-for="apellido" class="from-control"></span>
+    </div>
+    <div>
+    <label>Distrito</label><br>
+    <input asp-for="distrito" type="text">
+    <span asp-validation-for="distrito" class="from-control"></span>
+    </div>
+    <label>Banco</label>
+    <div>
+    <select asp-for="banco">
+        <option value="BCP">BCP</option>
+        <option value="Interbank">Interbank</option>
+        <option value="BanBif">BanBif</option>
+        <option value="Scotiabank">Scotiabank</option>
+    </select>
+    </div>
+    <label>Edad</label><br>
+    <input asp-for="edad" type="text">
+    <span asp-validation-for="edad" class="from-control"></span>
+    <div>
+    <div class="form-group">
+            Genero:
+            <label><input type="radio" asp-for="genero" value="F"> Femenino</label>
+            <label><input type="radio" asp-for="genero" value="M"> Masculino</label>
+    </div>
+    <div>
+    <label>Autor</label><br>
+    <input asp-for="autor" type="text">
+    <span asp-validation-for="autor" class="from-control"></span>
+    </div>
+    <button>Enviar</button>
+</form>
+<br>
+<br>
+ <td>@Html.DisplayTextFor(model => model.Respuesta)</td>

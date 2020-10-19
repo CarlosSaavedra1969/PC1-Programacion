@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PC1_Programacion.Models
 {
+    [Table("t_contactos")]
     public class Formulario
     {
         [Required(ErrorMessage="Por favor ingrese Datos")]

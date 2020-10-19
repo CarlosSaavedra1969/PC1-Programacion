@@ -7,15 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PC1_Programacion.Models;
 
+using PC1_Programacion.Data;
+
 namespace PC1_Programacion.Controllers
 {
     public class FormularioController : Controller
     {
         private readonly ILogger<FormularioController> _logger;
+        private readonly DatabaseContext _context;
 
-        public FormularioController(ILogger<FormularioController> logger)
+        public FormularioController(ILogger<FormularioController> logger,
+            DatabaseContext context)
         {
             _logger = logger;
+            _context = context;
         }
         public IActionResult Formulario()
         {
@@ -33,6 +38,8 @@ namespace PC1_Programacion.Controllers
          if(ModelState.IsValid)
          {
              //grabar
+             _context.Add(objFormulario);
+             _context.SaveChanges();
              objFormulario.Respuesta="Se registraron sus datos en la Base de Datos.";
          }else
          {
